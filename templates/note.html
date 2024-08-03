@@ -1,0 +1,121 @@
+<script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+
+
+<div>
+  <!-- back to dashboard here  -->
+  <a href="/templates/dashboard.html" class="text-white
+    text-sm
+    bg-purple-600
+    px-4
+    py-2
+    rounded-lg
+    hover:bg-purple-700
+    mr-4">Back to Dashboard</a>
+
+  
+
+
+</div>
+<div className="app-container text-white p-5 flex justify-center">
+  <div className="container max-w-2xl w-full bg-black">
+    <div className="box-border auto grid w-full gap-4 mb-4">
+      <h1 className="text-xl font-bold mb-2">Name</h1>
+      <input
+        className="w-full p-4 bg-black rounded-lg"
+        placeholder="Type a nickname of the person here"
+      />
+    </div>
+
+    <div className="box-border border-2 border-red-500 auto grid w-full gap-4 mb-4">
+      <h1 className="text-xl font-bold mb-2">Current Feeling</h1>
+      <!-- radio buttons here -->
+      <div className="flex gap-4">
+        <div>
+          <input type="radio" id="happy" name="feeling" value="happy" />
+          <label for="happy">Happy</label>
+        </div>
+        <div>
+          <input type="radio" id="sad" name="feeling" value="sad" />
+          <label for="sad">Sad</label>
+        </div>
+        <div>
+          <input type="radio" id="angry" name="feeling" value="angry" />
+          <label for="angry">Angry</label>
+        </div>
+        <div>
+          <input type="radio" id="anxious" name="feeling" value="anxious" />
+          <label for="anxious">Anxious</label>
+        </div>
+        <div>
+          <input type="radio" id="neutral" name="feeling" value="neutral" />
+          <label for="neutral">Neutral</label>
+        </div>
+    </div>
+
+    <div className="box-border auto grid w-full gap-4 mb-4">
+      <h1 className="text-xl font-bold mb-2">Title</h1>
+      <input
+        className="w-full p-4 bg-black rounded-lg"
+        placeholder="Type the title of the note here"
+      />
+    </div>
+
+    <div className="box-border auto grid w-full gap-4 mb-4">
+      <h1 className="text-xl font-bold mb-2">Note</h1>
+      <textarea
+        className="w-full p-4 bg-black rounded-lg"
+        placeholder="Type the content of the note here"
+      ></textarea>
+    </div>
+
+    <div className="flex justify-center mb-8">
+      <Button className="bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-700 mr-4">
+        +Upload Images
+      </Button>
+      <Button className="bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-700">
+        +Save Note
+      </Button>
+    </div>
+
+    <div className="box-border auto grid w-full gap-4 mb-4">
+      <h1 className="text-xl font-bold mb-2">Choose Behaviors to Associate with this Event</h1>
+      <div className="flex flex-wrap gap-4">
+        <div className="flex flex-col">
+          <h2 className="text-lg font-bold mb-2">Unhealthy</h2>
+          <div className="flex flex-wrap gap-2">
+            <button className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded">Love Bombing</button>
+            <button className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded">Fantasy Glasses</button>
+            <button className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded">Violating Boundaries</button>
+            <button className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded">Put Downs</button>
+            <button className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded">Victim Mentality</button>
+            <button className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded">Making Excuses</button>
+            <button className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded">Gaslighting</button>
+            <button className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded">Possessiveness</button>
+            <button className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded">Aggression</button>
+            <button className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded">Dictatorship</button>
+            <button className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded">Backstabbing</button>
+            <button className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded">Superiority</button>
+          </div>
+        </div>
+
+        <div className="flex flex-col">
+          <h2 className="text-lg font-bold mb-2">Healthy</h2>
+          <div className="flex flex-wrap gap-2">
+            <button className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded">Relaxed Pace</button>
+            <button className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded">Curiosity</button>
+            <button className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded">Respecting Boundaries</button>
+            <button className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded">Positive Messaging</button>
+            <button className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded">Positive Mindset</button>
+            <button className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded">Taking Responsibility</button>
+            <button className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded">Validating Your Experience</button>
+            <button className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded">Mutual Trust</button>
+            <button className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded">Compassion</button>
+            <button className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded">Equality</button>
+            <button className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded">Support</button>
+            <button className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded">Teachable</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
