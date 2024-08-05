@@ -16,29 +16,18 @@
 </head>
 <body class="">
     <nav class= "flex justify-end items-center my-5">
-        <!-- <img src="FlagItLogo.png" alt="Flag It Logo" class="logo"> -->
-        
-           <a href="#" class= "mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" hx-get="/home" hx-trigger="click" hx-target="#content">Home</a></li>
-           <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black">Button</a></li>
-           <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black"  hx-get="/about" hx-trigger="click" hx-target="#content">About</a></li>
-           <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black"  hx-get="/login" hx-trigger="click" hx-target="#content">Login</a></li>
-           <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" hx-get="/signup" hx-trigger="click" hx-target="#content">Signup</a></li>
-           <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" id="logout-link" hx-get="/logout" hx-trigger="click" hx-target="#content" style="display: none;">Logout</a></li>
     
-    </nav>
+    <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" hx-get="/index" hx-trigger="click" hx-target="#content">Home</a>
+    <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" hx-get="/login" hx-trigger="click" hx-target="#content">Login</a>
+    <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" hx-get="/signup" hx-trigger="click" hx-target="#content">Signup</a>
+    <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" id="logout-link" hx-get="/logout" hx-trigger="click" hx-target="#content" style="display: none;">Logout</a>
+</nav>
 
-    <div id="content">
-        <!-- Default content goes here -->
-        <section id="home" class="content-section">
-            <h1 class="text-4xl font-bold mb-2">Welcome to Flag It!</h1>
-            
-            <p class="text-lg ">We are a platform that allows you to create and manage your personal notes.</p>
-            <p class="text-lg">Sign up now to start organizing your thoughts!</p>
-            <p class="text-lg">Already have an account? Login to access your notes!</p>
-
-        </section>
-        
-    </div>
+<!-- Content area to load HTMX responses -->
+<div id="content" class="container mx-auto py-8">
+    <h1 class="text-4xl font-bold">Welcome to the Main Page</h1>
+    <p class="text-lg">This is the default content of the main page.</p>
+</div>
 
     <script src="scripts.js"></script>
 </body>

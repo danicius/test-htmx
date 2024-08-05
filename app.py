@@ -22,38 +22,38 @@ def about():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
-        if username in users and users[username] == password:
-            session['username'] = username
+        if email in users and users[email] == password:
+            session['email'] = email
             return redirect(url_for('dashboard'))
         else:
-            return "Invalid username or password", 401
+            return "Invalid email or password", 401
     return render_template_string(open('templates/login.html').read())
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
-        if username in users:
-            return "Username already exists", 400
-        users[username] = password
-        notes[username] = []
+        if email in users:
+            return "email already exists", 400
+        users[email] = password
+        notes[email] = []
         return redirect(url_for('login'))
     return render_template_string(open('templates/signup.html').read())
 
 @app.route('/logout')
 def logout():
-    session.pop('username', None)
+    session.pop('email', None)
     return redirect(url_for('home'))
 
 @app.route('/dashboard')
 def dashboard():
-    if 'username' not in session:
+    if 'email' not in session:
         return redirect(url_for('login'))
-    username = session['username']
-    user_notes = notes[username]
+    email = session['email']
+    user_notes = notes[email]
     return render_template_string(open('templates/dashboard.html').read(), notes=user_notes)
 
 @app.route('/note')
@@ -65,13 +65,14 @@ def new_note_form():
     </form>
     """
 
+
 @app.route('/add-note', methods=['POST'])
 def add_note():
-    if 'username' not in session:
+    if 'email' not in session:
         return redirect(url_for('login'))
     note = request.form['note']
-    username = session['username']
-    notes[username].append(note)
+    email = session['email']
+    notes[email].append(note)
     is_red_flag = "red flag" in note.lower()
     return render_template_string(open('templates/note.html').read(), note=note, is_red_flag=is_red_flag)
 
