@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="valentine">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
-    <div>
-        <h1 class="text-4xl font-bold">Welcome to the Home Page</h1>
-        <p class="text-lg">This is the content of the home page.</p>
+    <div> 
         <section id="home" class="content-section">
-          <h1 class="text-4xl font-bold mb-2">Welcome to Flag It!</h1>
+          <h1 class="text-4xl text-center font-bold mb-2">Welcome to Flag It!</h1>
+            <p class="text-lg text-center mb-6">Flag It is a simple web application that allows you to flag people.</p>
+            <p class="text-lg text-center mb-6">You can flag people for any reason you want.</p>
+            <p class="text-lg text-center mb-6">You can also add notes to people you have flagged.</p>
+            <p class="text-lg text-center mb-6">To get started, click on the Login button below.</p>
+            <div class="flex justify-center">
+                <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" hx-get="/login" hx-trigger="click" hx-target="#content">Login</a>
+            </div>
+            <!--fun stock photos below-->
+            <div class="flex justify-center">
+                <img src="https://www.videezy.com/people/50331-depressed-man-scrolls-through-phone-before-bed" alt="fun stock photo" class="w-1/2 h-1/2">
+            </div>
+
           
-          <p class="text-lg ">We are a platform that allows you to create and manage your personal notes.</p>
-          <p class="text-lg">Sign up now to start organizing your thoughts!</p>
-          <p class="text-lg">Already have an account? Login to access your notes!</p>
 
       </section>
     </div>

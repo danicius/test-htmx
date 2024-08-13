@@ -1,10 +1,25 @@
 from flask import Flask, render_template_string, request, session, redirect, url_for
+import os
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 users = {}
 notes = {}
+folders = {}
+#Testing purposes to test certain functionalities like dashboard, note, add-note, get-add-person-form, create-folder
+
+users = {'test': 'p'}
+notes = {'test': ['Note 1', 'Note 2']}
+def set_default_user():
+    if 'email' not in session:
+        session['email'] = 'test'  # Set a default user for development
+        
+@app.before_request
+def before_request():
+    if app.config.get('ENV') == 'development':
+        set_default_user()
+
 
 @app.route('/')
 def index():
@@ -54,17 +69,13 @@ def dashboard():
         return redirect(url_for('login'))
     email = session['email']
     user_notes = notes[email]
-    return render_template_string(open('templates/dashboard.html').read(), notes=user_notes)
+    return render_template_string(open('templates/dashboard.html').read(), folders=folders, notes=user_notes)
 
 @app.route('/note')
-def new_note_form():
-    return """
-    <form hx-post="/add-note" hx-target="#notes-list" class="note">
-        <textarea name="note" placeholder="Enter your note"></textarea>
-        <button type="submit">Save Note</button>
-    </form>
-    """
-
+def note():
+    if 'email' not in session:
+        return redirect(url_for('login'))
+    return render_template_string(open('templates/note.html').read())
 
 @app.route('/add-note', methods=['POST'])
 def add_note():
@@ -75,6 +86,36 @@ def add_note():
     notes[email].append(note)
     is_red_flag = "red flag" in note.lower()
     return render_template_string(open('templates/note.html').read(), note=note, is_red_flag=is_red_flag)
+
+@app.route('/get-add-person-form')
+def get_add_person_form():
+    return render_template_string('''
+        <div id="addPersonForm">
+            <input type="text" id="nicknameInput" name="name" placeholder="Enter nickname" class="border border-gray-300 px-4 py-2 rounded-lg">
+            <button class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600" 
+                    hx-post="/create-folder" 
+                    hx-target="#folderList"
+                    hx-swap="beforeend">Create Folder</button>
+        </div>
+    ''')
+
+@app.route('/create-folder', methods=['POST'])
+def create_folder():
+    name = request.form.get('name')
+    if name:
+        if name not in folders:
+            folders[name] = []
+            return render_template_string('''
+                <div class="folder bg-gray-200 p-4 mb-2 rounded-lg">
+                    <h2 class="text-lg font-semibold">{{ name }}</h2>
+                </div>
+            ''', name=name)
+        else:
+            return "Folder already exists", 400
+    return "Name is required", 400
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

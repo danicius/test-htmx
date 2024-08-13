@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="valentine">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,14 +22,21 @@
 <body>
   
   
-</body class="bg-gray-100 text-gray-800">
+</body class="text-gray-800">
 <div class="container mx-auto py-8">
   <!-- Back to Dashboard -->
   <div class="mb-4">
-    <a href="/dashboard" class="text-purple-600 hover:underline">Back to Dashboard</a>
+    <a href="/templates/dashboard.html" class="text-white
+    text-sm
+    bg-purple-600
+    px-4
+    py-2
+    rounded-lg
+    hover:bg-purple-700
+    mr-4">Back to Dashboard</a>
   </div>
 
-  <div class="bg-white p-8 rounded-lg shadow-md">
+  <div class=" p-8 rounded-lg shadow-md">
     <!-- Name  Input -->
     <div class="mb-4">
       <label for="name" class="block text-lg font-bold mb-2">Name</label>
@@ -74,7 +81,7 @@
       <!-- Note Input -->
       <div class="mb-4">
         <label for="note" class="block text-lg font-bold mb-2">Note</label>
-        <textarea id="note" class="w-full p-4 bg-gray-100 rounded-lg" placeholder="Type your note here"></textarea>
+        <textarea id="note" class="w-full p-4 rounded-lg" placeholder="Type your note here"></textarea>
       </div>
 
       <!-- Behaviors Section -->

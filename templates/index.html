@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- <link
+<script src="https://cdn.tailwindcss.com"></script>
+<html lang="en" data-theme="valentine">
+
+ <link
       href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css"
       rel="stylesheet"
       type="text/css"
-    /> -->
+    />
 <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
 
 <head>
@@ -15,20 +16,27 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="">
-    <nav class= "flex justify-end items-center my-5">
+  
     
-    <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" hx-get="/index" hx-trigger="click" hx-target="#content">Home</a>
-    <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" hx-get="/login" hx-trigger="click" hx-target="#content">Login</a>
-    <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" hx-get="/signup" hx-trigger="click" hx-target="#content">Signup</a>
-    <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" id="logout-link" hx-get="/logout" hx-trigger="click" hx-target="#content" style="display: none;">Logout</a>
-</nav>
+        <nav class="flex justify-end items-center my-5">
+            <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" hx-get="/home" hx-trigger="click" hx-target="#content">Home</a>
+            <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" hx-get="/login" hx-trigger="click" hx-target="#content">Login</a>
+            <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" hx-get="/signup" hx-trigger="click" hx-target="#content">Signup</a>
+            <a href="#" class="mx-2 px-5 py-2 text-black border-2 border-transparent rounded transition-all duration-300 ease-in-out hover:border-black" id="logout-link" hx-get="/logout" hx-trigger="click" hx-target="#content" style="display: none;">Logout</a>
+        </nav>
+
 
 <!-- Content area to load HTMX responses -->
 <div id="content" class="container mx-auto py-8">
     <h1 class="text-4xl font-bold">Welcome to the Main Page</h1>
     <p class="text-lg">This is the default content of the main page.</p>
 </div>
-
-    <script src="scripts.js"></script>
+<script>
+    // Optionally load default content on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        htmx.ajax('GET', '/home', '#content');
+    });
+</script>
+    
 </body>
 </html>

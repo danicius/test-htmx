@@ -13,35 +13,28 @@
             <h1 class="text-4xl font-bold mb-2">Welcome Danielle!</h1>
             
             <p class="text-lg mb-6">Start flagging!</p>
-            <div class="flex space-x-4">
-                <div>
-                    <button
-                        class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700"
-                        hx-get="/people"
-                        hx-trigger="click"
-                        hx-target="#inputArea"
-                    >
-                        + Add New Person
-                    </button>
-                </div>
-        
-                <a href="/templates/note.html" class="text-white text-sm bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-700 mt-4">New Note</a>
-            </div>
-        </div>
+           
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+            hx-get="/get-add-person-form"
+            hx-trigger="click"
+            hx-target="#addPersonForm"
+            hx-swap="innerHTML">
+        + Add New Person
+    </button>
+    
+    <div id="addPersonForm" class="mt-4">
 
+    
+    <div id="folderList"></div> <!-- This is where the result will be shown -->
+    
+
+    
+    </div>
+</body>
+</html>
+
+
+       
+<!-- 
         <div class="grid grid-cols-3 gap-4 w-full max-w-2xl">
-            <!-- Example folders for people to flag -->
-            <div class="bg-gray-500 p-4 rounded-lg">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h2 class="text-xl font-semibold">John Doe</h2>
-                        <p class="text-gray-400">Flagged: 3 times</p>
-                    </div>
-                    <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Flag</button>
-                </div>
-                
-            </div>
-            
-
-            
-            <div class="bg-gray-800 p-4 r
+           
