@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag It</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
+</head>
+<body>
+    <!--Login SignUp Nav Bar  -->
+    <nav class="bg-gray-800 p-4 text-white">
+        <div class="container mx-auto flex justify-between">
+            <a href="{{ url_for('home') }}" class="text-white
+            hover:text-gray-400">Flag It</a>
+            <div>
+                {% if current_user %}
+                    <a href="{{ url_for('dashboard') }}" class="text-white hover:text-gray-400">Dashboard</a>
+                    <a href="{{ url_for('logout') }}" class="text-white hover:text-gray-400">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="text-white hover:text-gray-400">Login</a>
+                    <a href="{{ url_for('signup') }}" class="text-white hover:text-gray-400">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+        
+        
+    </nav>
+    <div class="container mx-auto py-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} mb-4 p-4 border-l-4 border-{{ category }}-400 bg-{{ category }}-100 text-{{ category }}-700">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
